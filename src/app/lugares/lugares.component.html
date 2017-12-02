@@ -1,0 +1,22 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Lugares Cercanos</h2>
+            <a class="btn btn-primary" routerLink="/crear/new">Crear Nuevo Negocio</a>
+            <ul class="list-group">
+              <ng-container *ngFor="let lugar of lugares">
+                <a routerLink="/crear/{{lugar.id}}">
+                  <li class="list-group-item">{{lugar.nombre}}</li>
+                </a>
+              </ng-container>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Destacados</h2>
+        </div>
+    </div>
+</div>

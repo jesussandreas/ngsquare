@@ -1,0 +1,36 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li routerLinkActive="active" class="breadcrumb-item">
+      <a routerLink="/lugares">Lugares</a>
+    </li>
+    <li routerLinkActive="active" class="breadcrumb-item">
+      <a aria-current="page">Contacto</a>
+    </li>
+  </ol>
+</nav>
+<div class="container">
+  <label>Nombre</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.nombre"/>
+  <br />
+  <label>Distancia</label>
+  <input type="number" class="form-control" [(ngModel)]="lugar.distancia" />
+  <br />
+  <label>Cercania</label>
+  <input type="number" class="form-control" [(ngModel)]="lugar.cercania" />
+  <br />
+  <label>Descripción</label>
+  <textarea class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+  <br />
+  <label>Plan</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.plan"/>
+  <h3>Datos de Dirección</h3>
+  <label>Calle y Número</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.calle"/>
+  <label>Ciudad</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.ciudad"/>
+  <label>País</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.pais"/>
+  <hr />
+  <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>
+  <a class="btn btn-danger" routerLink="/lugares">Cancelar</a>
+</div>

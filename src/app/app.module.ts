@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import { ResaltarDirective } from './directives/resaltar.directive.ts';
-import { ContarClicksDirective } from './directives/contar-clicks.directive.ts';
+import { ResaltarDirective } from './directives/resaltar.directive';
+import { ContarClicksDirective } from './directives/contar-clicks.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
@@ -14,27 +13,28 @@ import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './services/lugares.service';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CrearComponent } from './crear/crear.component';
 import { environment } from '../environments/environment';
 import { HttpModule } from '@angular/http';
+import { LinkifystrPipe } from './pipes/linkifystr.pipe';
+import { RegistroComponent } from './registro/registro.component';
+import { LoginComponent } from './login/login.component';
+import { AutorizacionService } from './services/autorizacion.service'
+import { MyGuard } from './services/my-guard.service'
 
 const appRoutes: Routes = [
-  {path: '', component: LugaresComponent},
-  {path: 'lugares', component: LugaresComponent},
-  {path: 'detalle/:id', component: DetalleComponent},
-  {path: 'contacto', component: ContactoComponent},
-  {path: 'crear/:id', component: CrearComponent},
+  {path:'', component: LugaresComponent},
+  {path:'lugares', component: LugaresComponent},
+  {path:'detalle/:id', component: DetalleComponent},
+  {path:'contacto', component: ContactoComponent},
+  {path:'crear/:id', component: CrearComponent, canActivate:[MyGuard]},
+  {path:'login', component: LoginComponent},
+  {path:'registro', component: RegistroComponent},
 ];
-/*export const firebaseConfig = {
-  apiKey: 'AIzaSyD38mNDOlv9G5CimQt6PbvlQrjijvGsTgs',
-  authDomain: 'ngsquare-1e245.firebaseapp.com',
-  databaseURL: 'https://ngsquare-1e245.firebaseio.com',
-  storageBucket: 'ngsquare-1e245.appspot.com',
-  messagingSenderId: '499942878721'
-};*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,10 @@ const appRoutes: Routes = [
     DetalleComponent,
     LugaresComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LinkifystrPipe,
+    RegistroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     HttpModule
   ],
-  providers: [ LugaresService ],
+  providers: [ LugaresService, AutorizacionService, MyGuard ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

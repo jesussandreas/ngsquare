@@ -1,22 +1,41 @@
-<agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="13">
+  <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
 </agm-map>
 <hr />
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h2>Lugares Cercanos</h2>
-            <a class="btn btn-primary" routerLink="/crear/new">Crear Nuevo Negocio</a>
-            <ul class="list-group">
-              <ng-container *ngFor="let lugar of lugares">
-                <a routerLink="/crear/{{lugar.id}}">
-                  <li class="list-group-item">{{lugar.nombre}}</li>
-                </a>
-              </ng-container>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <h2>Destacados</h2>
-        </div>
+  <div class="row">
+    <div class="col-md-8 margin-b">
+      <h2>Lugares Cercanos</h2>
+      <a class="btn btn-outline-info btn-md btn-block special" routerLink="/crear/new">Crear Nuevo Lugar</a>
+      <ul class="list-group xs-12 md-12">
+        <ng-container *ngFor="let lugar of lugares">
+          <li class="list-group-item">
+            <a routerLink="/crear/{{lugar.id}}">
+              <h3>{{lugar.nombre}}
+                <span *ngIf="lugar.plan == 'pagado'">
+                  <i class="material-icons">&#xE86C;</i>
+                </span>
+                <span class="badge badge-light float-right">
+                  <i class="material-icons">&#xE254;</i>
+                </span>
+              </h3>
+            </a>
+            <small>Creado: {{lugar.id | date}}</small>
+            <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+          </li>
+        </ng-container>
+      </ul>
     </div>
+    <div class="col-md-4" [@contenedorAnimable]="state">
+      <h2>Destacados
+        <span><i class="material-icons">&#xE8E5;</i></span>
+      </h2>
+      <ng-container *ngFor="let lugar of lugares">
+        <div class="alert alert-info pad" *ngIf="lugar.plan == 'pagado'">
+          <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre}}</h3></a>
+          <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>

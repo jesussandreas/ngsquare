@@ -1,12 +1,12 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
     <img src="../assets/ngsquare.png" srcset="../assets/ngsquare.png 1x ../assets/ngsquare2x.png 2x" alt="logo">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler collapsed" type="button" (click)="toggleState()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="navbar-collapse" [ngClass]="{ 'collapse': isCollapse }">
     <ul class="navbar-nav mr-auto">
       <li routerLinkActive="active" class="nav-item">
         <a class="nav-link" routerLink="/lugares">Inicio <span class="sr-only">(current)</span></a>
@@ -17,12 +17,29 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right" *ngIf="!loggedIn">
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/registro">Registro</a></li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/login">
+          <i class="fa fa-lock" aria-hidden="true"></i> Login
+        </a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/registro">
+          <i class="fa fa-plus-square-o" aria-hidden="true"></i> Sign up</a>
+      </li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right" *ngIf="loggedIn">
-      <li><a (click)="logout()">Logout</a></li>
+      <!-- <li *ngIf="loggedUser"><a>{{_autorizacionService.email}}</a></li> -->
+      <li *ngIf="loggedUser">
+        <a class="nav-link disabled"><i class="fa fa-user-o" aria-hidden="true"></i>
+          {{loggedUser}}
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="logout()">Logout
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
+      </li>
     </ul>
 
   </div>

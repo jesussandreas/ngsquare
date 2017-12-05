@@ -1,41 +1,51 @@
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="13">
-  <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
-</agm-map>
-<hr />
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 margin-b">
-      <h2>Lugares Cercanos</h2>
-      <a class="btn btn-outline-info btn-md btn-block special" routerLink="/crear/new">Crear Nuevo Lugar</a>
-      <ul class="list-group xs-12 md-12">
-        <ng-container *ngFor="let lugar of lugares">
-          <li class="list-group-item">
-            <a routerLink="/crear/{{lugar.id}}">
-              <h3>{{lugar.nombre}}
-                <span *ngIf="lugar.plan == 'pagado'">
-                  <i class="material-icons">&#xE86C;</i>
-                </span>
-                <span class="badge badge-light float-right">
-                  <i class="material-icons">&#xE254;</i>
-                </span>
-              </h3>
-            </a>
-            <small>Creado: {{lugar.id | date}}</small>
-            <p [innerHtml]="lugar.descripcion | linkifystr"></p>
-          </li>
-        </ng-container>
-      </ul>
-    </div>
-    <div class="col-md-4" [@contenedorAnimable]="state">
-      <h2>Destacados
-        <span><i class="material-icons">&#xE8E5;</i></span>
-      </h2>
-      <ng-container *ngFor="let lugar of lugares">
-        <div class="alert alert-info pad" *ngIf="lugar.plan == 'pagado'">
-          <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre}}</h3></a>
-          <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+<div class="container-fluid">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-4 col-xl-4 bd-sidebar">
+      <div class="d-flex align-items-center">
+        <a class="btn btn-danger btn-md btn-block special" routerLink="/crear/new">Nuevo lugar/evento</a>
+      </div>
+      <nav class="pre-scrollable">
+        <div class="bd-toc-item margin-t" [@contenedorAnimable]="state">
+          <h3>Destacados
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </h3>
+          <div class="list-group">
+            <ng-container *ngFor="let lugar of lugares">
+              <div class="list-group-item" *ngIf="lugar.plan == 'pagado'">
+                <p><a routerLink="/crear/{{lugar.id}}">{{lugar.nombre}}</a></p>
+                <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+              </div>
+            </ng-container>
+          </div>
         </div>
-      </ng-container>
+        <h3 class="margin-t">Lugares Cercanos
+          <span><i class="fa fa-search" aria-hidden="true"></i></span>
+        </h3>
+        <ul class="list-group xs-12 md-12">
+          <ng-container *ngFor="let lugar of lugares">
+            <li class="list-group-item">
+              <a routerLink="/crear/{{lugar.id}}">
+                <p>{{lugar.nombre}}
+                  <span *ngIf="lugar.plan == 'pagado'">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                  </span>
+                  <span class="badge badge-light float-right">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </span>
+                </p>
+              </a>
+              <small class="form-text text-muted">Creado: {{lugar.id | date}}</small>
+              <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+            </li>
+          </ng-container>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-12 col-md-8 col-xl-8 bd-content">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
+        <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
+      </agm-map>
     </div>
   </div>
 </div>

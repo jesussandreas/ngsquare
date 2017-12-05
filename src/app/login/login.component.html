@@ -1,17 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <div class="jumbotron">
-        <label>Email</label>
-        <input type="email" class="form-control" [(ngModel)]="loginParams.email"/>
-        <br />
-        <label>Contraseña</label>
-        <input type="password" class="form-control" [(ngModel)]="loginParams.password" />
-        <hr />
-        <a class="btn btn-info btn-block" (click)="login()">Login!</a>
-        <a class="btn btn-primary btn-block" (click)="facebookLogin()">Login con Facebook</a>
-        <a routerLink="/lugares" class="btn btn-default btn-block">Cancelar</a>
-      </div>
+<div class="container align-self-center pad-t">
+  <div class="row justify-content-center bg-light">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <h2 class="text-center margin-t">Login
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+      </h2>
+      <hr>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="loginParams.email" [ngModelOptions]="{standalone: true}">
+          <small class="form-text text-muted">Nunca compartiremos tu información.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" class="form-control" name="passport" [(ngModel)]="loginParams.password" [ngModelOptions]="{standalone: true}">
+        </div>
+        <small class="form-text text-muted">
+          Not registered? <a routerLink="/registro">Create an account</a>
+        </small>
+        <hr>
+        <button type="submit" class="btn btn-secondary btn-block" (click)="login()">Iniciar Sesión</button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="facebookLogin()">
+          <i class="fa fa-facebook" aria-hidden="true"></i> | Ingresa con facebook
+        </button>
+        <button type="submit" class="btn btn-danger btn-block" routerLink="/lugares">Cancelar</button>
+      </form>
+      <hr>
     </div>
   </div>
 </div>

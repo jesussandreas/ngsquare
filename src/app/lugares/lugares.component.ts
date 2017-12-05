@@ -24,8 +24,9 @@ export class LugaresComponent {
   title = 'NgSquare';
   state = 'inicial';
 
-  lat:number = 43.6425662;
-  lng:number = -79.3892455,17;
+  lat:number = 10.657656;
+  lng:number = -71.5913383;
+
   lugares = null;
   animar(){
     this.state = (this.state === 'final') ? 'inicial' : 'final';

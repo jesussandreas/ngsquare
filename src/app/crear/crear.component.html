@@ -4,33 +4,43 @@
       <a routerLink="/lugares">Lugares</a>
     </li>
     <li routerLinkActive="active" class="breadcrumb-item">
-      <a aria-current="page">Contacto</a>
+      <a aria-current="page">Crear/Editar</a>
     </li>
   </ol>
 </nav>
-<div class="container">
-  <label>Nombre</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.nombre"/>
-  <br />
-  <label>Distancia</label>
-  <input type="number" class="form-control" [(ngModel)]="lugar.distancia" />
-  <br />
-  <label>Cercania</label>
-  <input type="number" class="form-control" [(ngModel)]="lugar.cercania" />
-  <br />
-  <label>Descripción</label>
-  <textarea class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
-  <br />
-  <label>Plan</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.plan"/>
-  <h3>Datos de Dirección</h3>
-  <label>Calle y Número</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.calle"/>
-  <label>Ciudad</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.ciudad"/>
-  <label>País</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.pais"/>
+<div class="container col-sm-12 col-md-8 col-lg-6 bg-light margin-t card">
+    <label class="col-form-label">Nombre  del lugar/evento</label>
+    <input type="text" class="form-control" [(ngModel)]="lugar.nombre"/>
+    <br>
+    <label class="col-form-label">Descripción</label>
+    <textarea class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+    <small class="form-text text-muted">Puedes incluir links, Sé tan especifico como quieras.</small>
+    <br>
+    <label class="col-form-label">Plan</label>
+    <input type="text" class="form-control" [(ngModel)]="lugar.plan"/>
+    <small class="form-text text-muted">pagado o gratuito (en minúsculas).</small>
+    <hr>
+    <h4 class="h4">Datos de Dirección 🌎</h4>
+    <form>
+      <label class="col-form-label">Buscar Dirección en Google Maps</label>
+      <input type="text" class="form-control" [formControl]="searchField">
+    </form>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let result of results$ | async" (click)="seleccionarDireccion(result)">
+        {{result.formatted_address}}
+      </li>
+    </ul>
+    <hr>
+    <label>Calle y Número</label>
+    <input type="text" class="form-control" [(ngModel)]="lugar.calle"/>
+    <br>
+    <label>Ciudad</label>
+    <input type="text" class="form-control" [(ngModel)]="lugar.ciudad"/>
+    <br>
+    <label>País</label>
+    <input type="text" class="form-control" [(ngModel)]="lugar.pais"/>
   <hr />
-  <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>
-  <a class="btn btn-danger" routerLink="/lugares">Cancelar</a>
+  <button class="btn btn-primary btn-block" (click)="guardarLugar()">Enviar</button>
+  <button class="btn btn-danger btn-block" routerLink="/lugares">Cancelar</button>
 </div>
+<hr>

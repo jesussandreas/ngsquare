@@ -1,8 +1,48 @@
+@import '../../../node_modules/font-awesome/css/font-awesome.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto');
+
 agm-map {
-  height: 400px;
+  height: 90vh;
 }
 
-.number_par {
-  color: blue;
-  background-color: aliceblue;
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #545454;
+  padding-left: 0.1em;
+}
+
+p {
+  margin-bottom: 0.5em !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+/* Turn on custom 8px wide scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* 1px wider than Lion. */
+  /* This is more usable for users trying to click it. */
+  background-color: rgba(0,0,0,0);
+  -webkit-border-radius: 100px;
+}
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+  /* This is the EXACT color of Mac OS scrollbars.
+     Yes, I pulled out digital color meter */
+  background: rgba(0,0,0,0.3);
+  -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.5); /* Some darker color when you click it */
+  -webkit-border-radius: 100px;
 }

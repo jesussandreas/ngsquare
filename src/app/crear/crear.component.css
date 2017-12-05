@@ -1,0 +1,11 @@
+@import '../../../node_modules/font-awesome/css/font-awesome.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto');
+
+label {
+  font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}

@@ -12,28 +12,48 @@ export class AutorizacionService{
   public facebookLogin(){
     this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then((result)=>{
-        swal('Genial!', 'Usuario Logeado con Facebook', 'success')
+        swal({
+          title: '¡Genial!',
+          text: 'Inicio de sesión con facebook',
+          type: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        // this.email = result.user.email;
         this.router.navigate(['lugares'])
       }) .catch((error)=>{
         console.log(error)
+        swal('Ops...', `Ha ocurrido un ${error}`, 'error')
       })
   }
   public login = (email, password) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
       .then((response)=> {
-        swal('Genial!', 'Usuario Registrado con éxito', 'success')
+        swal({
+          title: '¡Genial!',
+          text: 'Inicio de sesión con éxito',
+          type: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['lugares'])
       }) .catch((error)=>{
-        swal('Ops...', 'Ha ocurrido un error', 'error')
+        swal('Ops...', `Ha ocurrido un ${error}`, 'error')
       })
   }
   public registro = (email, password) => {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((response)=> {
-        swal('Genial!', 'Usuario Registrado con éxito', 'success')
+        swal({
+          title: '¡Genial!',
+          text: 'Usuario registrado con éxito',
+          type: 'success',
+          showConfirmButton: true,
+          timer: 1500
+        })
         this.router.navigate(['lugares'])
       }) .catch((error)=>{
-        swal('Ops...', 'Ha ocurrido un error', 'error')
+        swal('Ops...', `Ha ocurrido un ${error}`, 'error')
       })
   }
   public isLogged(){
@@ -41,7 +61,10 @@ export class AutorizacionService{
   }
   public logout(){
     this.angularFireAuth.auth.signOut()
-    swal('Adios 😢', 'Sesión Cerrada', 'success')
+    swal('¡Adiós!', 'Sesión cerrada con éxito', 'success')
     this.router.navigate(['lugares'])
+  }
+  public getUser(){
+    return this.angularFireAuth.auth;
   }
 }

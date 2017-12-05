@@ -1,16 +1,37 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <div class="jumbotron">
-        <label>Email</label>
-        <input type="email" class="form-control" [(ngModel)]="registro.email" />
-        <br />
-        <label>Contraseña</label>
-        <input type="password" class="form-control" [(ngModel)]="registro.password" />
-        <hr />
-        <a class="btn btn-primary btn-block" (click)="registrar()">Registrarse!</a>
-        <a class="btn btn-default btn-block">Cancelar</a>
-      </div>
+<div class="container align-self-center pad-t">
+  <div class="row justify-content-center bg-light">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <h2 class="text-center margin-t">Sign Up
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </h2>
+      <hr>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="registro.email" [ngModelOptions]="{standalone: true}">
+          <small class="form-text text-muted">Nunca compartiremos tu información.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" class="form-control" name="passport" [(ngModel)]="registro.password" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            He leído y acepto los términos y condiciones de uso
+          </label>
+        </div>
+        <small class="form-text text-muted">
+          Already registered? <a routerLink="/login">Sign In</a>
+        </small>
+        <hr>
+        <button type="submit" class="btn btn-secondary btn-block" (click)="registrar()">Registrarme</button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="facebookLogin()">
+          <i class="fa fa-facebook" aria-hidden="true"></i> | Ingresa con facebook
+        </button>
+        <button type="submit" class="btn btn-danger btn-block" routerLink="/lugares">Cancelar</button>
+      </form>
+      <hr>
     </div>
   </div>
 </div>

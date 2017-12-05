@@ -1,48 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-agm-map {
-  height: 400px;
+/*================================= Global ===================================*/
+body {
+  background: #eceff1;
+  font-family: 'Lato', sans-serif;
 }
 
-.number_par {
-  color: blue;
-  background-color: aliceblue;
+.pad-t {
+  padding-top: 2em;
 }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-    url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
-    url(../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+.margin-t {
+  margin-top: 15px;
 }
 
 .pad {
@@ -56,5 +24,43 @@ agm-map {
 }
 
 .margin-b {
-  margin-bottom: 25px;
+  margin-bottom: 2em;
+}
+
+.pre-scrollable {
+  height: 80vh !important;
+  max-height: none !important;
+}
+
+@media screen and (max-width: 748px) {
+  .pre-scrollable {
+    height: auto !important;
+  }
+}
+
+.btn {
+  text-align: center;
+  padding: .6em .8em .8em;
+  border: none;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 -.2em rgba(0,0,0, .2);
+  outline: 0;
+  transition: .2s;
+  will-change: transform;
+  font-family: 'Lato', sans-serif;
+}
+.btn.green {
+  background: #7dc800;
+}
+
+.btn:active {
+  transform: scale(.9);
+}
+
+footer {
+  padding: 2em;
+  color: #d4d4d4;
 }

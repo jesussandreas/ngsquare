@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row flex-xl-nowrap col-12 xs-12 sm-12">
+  <div class="row flex-xl-nowrap col-12 xs-12 sm-12 md-12 lg-12 xl-12">
     <div class="col-12 xs-12 sm-12 col-sm-12 col-xs-12 col-md-4 col-xl-4 bd-sidebar">
       <div class="d-flex align-items-center">
         <a class="btn btn-danger btn-md btn-block special" routerLink="/crear/new">Nuevo lugar/evento</a>
@@ -42,7 +42,7 @@
       </nav>
     </div>
 
-    <div class="col-sm-12 sm-12 col-xs-12 col-md-8 col-xl-8 bd-content">
+    <div class="col-sm-12 sm-12 col-xs-12 xs-12 col-md-8 md-8 col-xl-8 lg-8 bd-content">
       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="3">
         <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
       </agm-map>

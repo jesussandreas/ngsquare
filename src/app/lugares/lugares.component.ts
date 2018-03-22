@@ -28,22 +28,22 @@ export class LugaresComponent {
   lng:number = -71.5913383;
 
   lugares = null;
-  animar(){
+  animar() {
     this.state = (this.state === 'final') ? 'inicial' : 'final';
   }
-  animacionInicia(e){
+  animacionInicia(e) {
     console.log('Iniciado!');
     console.log(e);
   }
-  animacionTermina(e){
+  animacionTermina(e) {
     console.log('Terminado!');
     console.log(e);
   }
-  constructor(private lugaresService: LugaresService){
+  constructor(private lugaresService: LugaresService) {
     lugaresService.getLugares()
-      .valueChanges().subscribe(lugares =>{
+      .valueChanges().subscribe(lugares => {
         this.lugares = lugares;
-        var me = this;
+        const me = this;
         me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
         this.state = 'final';
       }, error => {
@@ -52,7 +52,7 @@ export class LugaresComponent {
           'Oops...',
           '¡Algo va mal!',
           'error'
-        )
+        );
       });
   }
 }

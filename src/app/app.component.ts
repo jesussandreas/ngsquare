@@ -8,7 +8,7 @@ import { AutorizacionService } from './services/autorizacion.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isCollapse = false;
+  isCollapse = true;
   toggleState() {
     let foo = this.isCollapse
     this.isCollapse = foo === false ? true : false;

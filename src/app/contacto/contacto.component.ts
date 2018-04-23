@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database/database';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto',
@@ -31,6 +32,12 @@ export class ContactoComponent implements OnInit {
     `;
     const formRequest = { name, email, message, date, html };
     this.db.list('/messages').push(formRequest);
+    swal({
+      title: '¡Genial!',
+      type: 'success',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.form.reset();
   }
 

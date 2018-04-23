@@ -8,17 +8,29 @@ export class MyGuard implements CanActivate {
   loggedIn = false;
   constructor(private autorizacionService: AutorizacionService) {
     this.autorizacionService.isLogged()
-      .subscribe((result)=>{
-        if(result && result.uid) {
-          this.loggedIn = true
+      .subscribe((result) => {
+        if (result && result.uid) {
+          this.loggedIn = true;
         } else {
-          this.loggedIn = false
+          this.loggedIn = false;
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Necesitas Iniciar sesión!',
+            footer: '<a href="/login">Go to Login</a>',
+          });
         }
-      }, (error)=>{
-        this.loggedIn = false
-      })
+      }, (error) => {
+        this.loggedIn = false;
+        swal({
+          type: 'error',
+          title: 'Oops...',
+          text: error,
+          footer: '<a routerLink="/login">Go to Login</a>',
+        });
+      });
   }
-  canActivate(){
-    return this.loggedIn
+  canActivate() {
+    return this.loggedIn;
   }
 }

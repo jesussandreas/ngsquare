@@ -19,8 +19,7 @@ body {
 }
 
 .special {
-  margin-top: 13px;
-  margin-bottom: 13px;
+  margin: 5px !important;
 }
 
 .margin-b {
@@ -40,10 +39,10 @@ body {
 
 .btn {
   text-align: center;
-  padding: .6em .8em .8em;
+  padding: .6em .8em;
+  margin: 0;
   border: none;
   color: white;
-  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: inset 0 -.2em rgba(0,0,0, .2);

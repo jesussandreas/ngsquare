@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar sticky-top navbar-expand-lg navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" href=\"#\">\r\n    <img src=\"../assets/ngsquare.png\" srcset=\"../assets/ngsquare.png 1x ../assets/ngsquare2x.png 2x\" alt=\"logo\">\r\n  </a>\r\n  <button class=\"navbar-toggler collapsed\" type=\"button\" (click)=\"toggleState()\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"navbar-collapse\" [ngClass]=\"{ 'collapse': isCollapse }\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/lugares\">Inicio <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/contacto\">Contacto</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <ul class=\"nav navbar-nav navbar-right\" *ngIf=\"!loggedIn\">\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/login\">\r\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i> Login\r\n        </a>\r\n      </li>\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/registro\">\r\n          <i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i> Sign up</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <ul class=\"nav navbar-nav navbar-right\" *ngIf=\"loggedIn\">\r\n      <!-- <li *ngIf=\"loggedUser\"><a>{{_autorizacionService.email}}</a></li> -->\r\n      <li *ngIf=\"loggedUser\">\r\n        <a class=\"nav-link disabled\"><i class=\"fa fa-user-o\" aria-hidden=\"true\"></i>\r\n          {{loggedUser}}\r\n        </a>\r\n      </li>\r\n      <li>\r\n        <a class=\"nav-link\" (click)=\"logout()\">Logout\r\n          <i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<nav class=\"navbar sticky-top navbar-expand-lg navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" routerLink=\"/lugares\">\r\n    <img src=\"../assets/ngsquare.png\" srcset=\"../assets/ngsquare.png 1x ../assets/ngsquare2x.png 2x\" alt=\"logo\">\r\n  </a>\r\n  <button class=\"navbar-toggler collapsed\" type=\"button\" (click)=\"toggleState()\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"navbar-collapse\" [ngClass]=\"{ 'collapse': isCollapse }\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/lugares\">Inicio <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/contacto\">Contacto</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <ul class=\"nav navbar-nav navbar-right\" *ngIf=\"!loggedIn\">\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/login\">\r\n          <i class=\"fa fa-lock\" aria-hidden=\"true\"></i> Login\r\n        </a>\r\n      </li>\r\n      <li routerLinkActive=\"active\" class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/registro\">\r\n          <i class=\"fa fa-plus-square-o\" aria-hidden=\"true\"></i> Sign up</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <ul class=\"nav navbar-nav navbar-right\" *ngIf=\"loggedIn\">\r\n      <!-- <li *ngIf=\"loggedUser\"><a>{{_autorizacionService.email}}</a></li> -->\r\n      <li *ngIf=\"loggedUser\">\r\n        <a class=\"nav-link disabled\"><i class=\"fa fa-user-o\" aria-hidden=\"true\"></i>\r\n          {{loggedUser}}\r\n        </a>\r\n      </li>\r\n      <li>\r\n        <a class=\"nav-link\" (click)=\"logout()\">Logout\r\n          <i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -195,7 +195,7 @@ var AppModule = (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__agm_core__["a" /* AgmCoreModule */].forRoot({
                     apiKey: 'AIzaSyB0MPhoUyJLpXC82aEpx0SS5Cx9vpi9WOg'
                 }),
@@ -207,7 +207,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_14_angularfire2_firestore__["a" /* AngularFirestoreModule */],
                 __WEBPACK_IMPORTED_MODULE_19__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_25_angular_font_awesome__["a" /* AngularFontAwesomeModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* ReactiveFormsModule */]
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* ReactiveFormsModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_12__services_lugares_service__["a" /* LugaresService */], __WEBPACK_IMPORTED_MODULE_23__services_autorizacion_service__["a" /* AutorizacionService */], __WEBPACK_IMPORTED_MODULE_24__services_my_guard_service__["a" /* MyGuard */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
@@ -241,7 +241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/contacto/contacto.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container align-self-center pad-t margin-b\">\r\n  <div class=\"row justify-content-center bg-light\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <h4 class=\"text-center margin-t h4\">Contacto\r\n        <i class=\"fa fa-envelope-open-o\" aria-hidden=\"true\"></i>\r\n      </h4>\r\n      <hr>\r\n      <form action=\"https://formspree.io/jesussandrea12@gmail.com\" method=\"POST\">\r\n        <div class=\"form-row\">\r\n          <div class=\"col\">\r\n            <label class=\"col-form-label\">Nombre</label>\r\n            <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"John\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-row\">\r\n          <div class=\"col\">\r\n            <label class=\"col-form-label\">Apellido</label>\r\n            <input type=\"text\" name=\"last-name\" class=\"form-control\" placeholder=\"Doe\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Email</label>\r\n          <input type=\"email\" name=\"_replyto\" class=\"form-control\" placeholder=\"address@example.com\">\r\n          <small class=\"form-text text-muted\">Nunca compartiremos tu información.</small>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Mensaje</label>\r\n          <textarea class=\"form-control\" rows=\"4\"></textarea>\r\n        </div>\r\n        <hr>\r\n        <button type=\"submit\" value=\"Send\" class=\"btn btn-primary btn-block\">Enviar</button>\r\n        <button class=\"btn btn-danger btn-block\" routerLink=\"/lugares\">Cancelar</button>\r\n      </form>\r\n      <hr>\r\n    </div>\r\n  </div>\r\n</div>\r\n<footer class=\"bg-dark\">\r\n  <p class=\"text-center\">Copyright ©️ 2017 NgSquare All Rights Reserved.<br>\r\n    Made with ❤️ by @jesussandrea12</p>\r\n</footer>\r\n"
+module.exports = "<div class=\"container align-self-center pad-t margin-b\">\r\n  <div class=\"row justify-content-center bg-light\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <h4 class=\"text-center margin-t h4\">Contacto\r\n        <i class=\"fa fa-envelope-open-o\" aria-hidden=\"true\"></i>\r\n      </h4>\r\n      <hr>\r\n      <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-row\">\r\n          <div class=\"col\">\r\n            <label class=\"col-form-label\">Nombre</label>\r\n            <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"John Doe\" formControlName=\"name\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Email</label>\r\n          <input type=\"email\" name=\"_replyto\" class=\"form-control\" placeholder=\"address@example.com\" formControlName=\"email\">\r\n          <small class=\"form-text text-muted\">Nunca compartiremos tu información.</small>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Mensaje</label>\r\n          <textarea class=\"form-control\" rows=\"4\" formControlName=\"message\"></textarea>\r\n        </div>\r\n        <hr>\r\n        <button type=\"submit\" [disabled]=\"form.invalid\" value=\"Send\" class=\"btn btn-primary btn-block\">Enviar</button>\r\n        <button class=\"btn btn-danger btn-block\" routerLink=\"/lugares\">Cancelar</button>\r\n      </form>\r\n      <hr>\r\n    </div>\r\n  </div>\r\n</div>\r\n<footer class=\"bg-dark\">\r\n  <p class=\"text-center\">Copyright ©️ 2017 NgSquare All Rights Reserved.<br>\r\n    Made with ❤️ by @jesussandrea12</p>\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -251,6 +251,9 @@ module.exports = "<div class=\"container align-self-center pad-t margin-b\">\r\n
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database_database__ = __webpack_require__("../../../../angularfire2/database/database.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -261,9 +264,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var ContactoComponent = (function () {
-    function ContactoComponent() {
+    function ContactoComponent(fb, af, db) {
+        this.fb = fb;
+        this.af = af;
+        this.db = db;
+        this.createForm();
     }
+    ContactoComponent.prototype.createForm = function () {
+        this.form = this.fb.group({
+            name: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required],
+            email: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required],
+            message: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required],
+        });
+    };
+    ContactoComponent.prototype.onSubmit = function () {
+        var _a = this.form.value, name = _a.name, email = _a.email, message = _a.message;
+        var date = Date();
+        var html = "\n      <div>From: " + name + "</div>\n      <div>Email: <a href=\"mailto:" + email + "\">" + email + "</a></div>\n      <div>Date: " + date + "</div>\n      <div>Message: " + message + "</div>\n    ";
+        var formRequest = { name: name, email: email, message: message, date: date, html: html };
+        this.db.list('/messages').push(formRequest);
+        this.form.reset();
+    };
     ContactoComponent.prototype.ngOnInit = function () {
     };
     ContactoComponent = __decorate([
@@ -272,7 +297,7 @@ var ContactoComponent = (function () {
             template: __webpack_require__("../../../../../src/app/contacto/contacto.component.html"),
             styles: [__webpack_require__("../../../../../src/app/contacto/contacto.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_angularfire2__["a" /* AngularFireModule */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_database_database__["a" /* AngularFireDatabase */]])
     ], ContactoComponent);
     return ContactoComponent;
 }());
@@ -315,11 +340,11 @@ module.exports = "<nav aria-label=\"breadcrumb\" role=\"navigation\">\r\n  <ol c
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_lugares_service__ = __webpack_require__("../../../../../src/app/services/lugares.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_sweetalert2__ = __webpack_require__("../../../../sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_sweetalert2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_sweetalert2__ = __webpack_require__("../../../../sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_sweetalert2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Rx__ = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -345,14 +370,14 @@ var CrearComponent = (function () {
         this.lugar = {};
         this.id = null;
         this.id = this.route.snapshot.params['id'];
-        if (this.id != 'new') {
+        if (this.id !== 'new') {
             this.lugaresService.getLugar(this.id)
                 .valueChanges().subscribe(function (lugar) {
                 _this.lugar = lugar;
             });
         }
         var URL = 'https://maps.google.com/maps/api/geocode/json';
-        this.searchField = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]();
+        this.searchField = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
         this.results$ = this.searchField.valueChanges
             .debounceTime(500)
             .switchMap(function (query) { return _this.http.get(URL + "?address=" + query); })
@@ -372,10 +397,10 @@ var CrearComponent = (function () {
             .subscribe(function (result) {
             _this.lugar.lat = result.json().results[0].geometry.location.lat;
             _this.lugar.lng = result.json().results[0].geometry.location.lng;
-            if (_this.id != 'new') {
+            if (_this.id !== 'new') {
                 _this.lugaresService.editarLugar(_this.lugar);
                 history.back();
-                __WEBPACK_IMPORTED_MODULE_3_sweetalert2___default()({
+                __WEBPACK_IMPORTED_MODULE_5_sweetalert2___default()({
                     title: '¡Listo!',
                     text: 'Editado con éxito, Volviendo a inicio.',
                     type: 'success',
@@ -386,7 +411,7 @@ var CrearComponent = (function () {
             else {
                 _this.lugar.id = Date.now();
                 _this.lugaresService.guardarLugar(_this.lugar);
-                __WEBPACK_IMPORTED_MODULE_3_sweetalert2___default()({
+                __WEBPACK_IMPORTED_MODULE_5_sweetalert2___default()({
                     title: '¡Nuevo lugar!',
                     text: 'Creado con éxito, ¿Desea crear otro?',
                     type: 'question',
@@ -398,7 +423,7 @@ var CrearComponent = (function () {
                     if (result.value) { }
                     else {
                         history.back();
-                        __WEBPACK_IMPORTED_MODULE_3_sweetalert2___default()({
+                        __WEBPACK_IMPORTED_MODULE_5_sweetalert2___default()({
                             type: 'success',
                             title: '¡Genial!',
                             text: 'Volviendo a inicio.',
@@ -417,7 +442,7 @@ var CrearComponent = (function () {
             template: __webpack_require__("../../../../../src/app/crear/crear.component.html"),
             styles: [__webpack_require__("../../../../../src/app/crear/crear.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_lugares_service__["a" /* LugaresService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_lugares_service__["a" /* LugaresService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]])
     ], CrearComponent);
     return CrearComponent;
 }());
@@ -1040,6 +1065,8 @@ var LugaresService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyGuard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__autorizacion_service__ = __webpack_require__("../../../../../src/app/services/autorizacion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2__ = __webpack_require__("../../../../sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_sweetalert2__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1049,6 +1076,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var MyGuard = (function () {
@@ -1063,9 +1091,21 @@ var MyGuard = (function () {
             }
             else {
                 _this.loggedIn = false;
+                __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Necesitas Iniciar sesión!',
+                    footer: '<a href="/login">Go to Login</a>',
+                });
             }
         }, function (error) {
             _this.loggedIn = false;
+            __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                type: 'error',
+                title: 'Oops...',
+                text: error,
+                footer: '<a routerLink="/login">Go to Login</a>',
+            });
         });
     }
     MyGuard.prototype.canActivate = function () {

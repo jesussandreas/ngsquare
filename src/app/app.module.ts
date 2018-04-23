@@ -22,18 +22,18 @@ import { HttpModule } from '@angular/http';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
-import { AutorizacionService } from './services/autorizacion.service'
-import { MyGuard } from './services/my-guard.service'
+import { AutorizacionService } from './services/autorizacion.service';
+import { MyGuard } from './services/my-guard.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 const appRoutes: Routes = [
-  {path:'', component: LugaresComponent},
-  {path:'lugares', component: LugaresComponent},
-  {path:'detalle/:id', component: DetalleComponent},
-  {path:'contacto', component: ContactoComponent},
-  {path:'crear/:id', component: CrearComponent, canActivate:[MyGuard]},
-  {path:'login', component: LoginComponent},
-  {path:'registro', component: RegistroComponent},
+  {path: '', component: LugaresComponent},
+  {path: 'lugares', component: LugaresComponent},
+  {path: 'detalle/:id', component: DetalleComponent},
+  {path: 'contacto', component: ContactoComponent},
+  {path: 'crear/:id', component: CrearComponent, canActivate: [MyGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'registro', component: RegistroComponent},
 ];
 
 @NgModule({

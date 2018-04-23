@@ -241,7 +241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/contacto/contacto.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container align-self-center pad-t margin-b\">\r\n  <div class=\"row justify-content-center bg-light\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <h4 class=\"text-center margin-t h4\">Contacto\r\n        <i class=\"fa fa-envelope-open-o\" aria-hidden=\"true\"></i>\r\n      </h4>\r\n      <hr>\r\n      <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-row\">\r\n          <div class=\"col\">\r\n            <label class=\"col-form-label\">Nombre</label>\r\n            <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"John Doe\" formControlName=\"name\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Email</label>\r\n          <input type=\"email\" name=\"_replyto\" class=\"form-control\" placeholder=\"address@example.com\" formControlName=\"email\">\r\n          <small class=\"form-text text-muted\">Nunca compartiremos tu información.</small>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Mensaje</label>\r\n          <textarea class=\"form-control\" rows=\"4\" formControlName=\"message\"></textarea>\r\n        </div>\r\n        <hr>\r\n        <button type=\"submit\" [disabled]=\"form.invalid\" value=\"Send\" class=\"btn btn-primary btn-block\">Enviar</button>\r\n        <button class=\"btn btn-danger btn-block\" routerLink=\"/lugares\">Cancelar</button>\r\n      </form>\r\n      <hr>\r\n    </div>\r\n  </div>\r\n</div>\r\n<footer class=\"bg-dark\">\r\n  <p class=\"text-center\">Copyright ©️ 2017 NgSquare All Rights Reserved.<br>\r\n    Made with ❤️ by @jesussandrea12</p>\r\n</footer>\r\n"
+module.exports = "<div class=\"container align-self-center pad-t margin-b\">\r\n  <div class=\"row justify-content-center bg-light\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <h4 class=\"text-center margin-t h4\">Contacto\r\n        <i class=\"fa fa-envelope-open-o\" aria-hidden=\"true\"></i>\r\n      </h4>\r\n      <hr>\r\n      <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-row\">\r\n          <div class=\"col\">\r\n            <label class=\"col-form-label\">Nombre</label>\r\n            <input type=\"text\" name=\"name\" class=\"form-control\" placeholder=\"John Doe\" formControlName=\"name\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Email</label>\r\n          <input type=\"email\" name=\"_replyto\" class=\"form-control\" placeholder=\"address@example.com\" formControlName=\"email\">\r\n          <small class=\"form-text text-muted\">Nunca compartiremos tu información.</small>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-form-label\">Mensaje</label>\r\n          <textarea class=\"form-control\" rows=\"4\" formControlName=\"message\"></textarea>\r\n        </div>\r\n        <hr>\r\n        <button type=\"submit\" value=\"Send\" class=\"btn btn-primary btn-block\">Enviar</button>\r\n        <button class=\"btn btn-danger btn-block\" routerLink=\"/lugares\">Cancelar</button>\r\n      </form>\r\n      <hr>\r\n    </div>\r\n  </div>\r\n</div>\r\n<footer class=\"bg-dark\">\r\n  <p class=\"text-center\">Copyright ©️ 2017 NgSquare All Rights Reserved.<br>\r\n    Made with ❤️ by @jesussandrea12</p>\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -254,6 +254,8 @@ module.exports = "<div class=\"container align-self-center pad-t margin-b\">\r\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database_database__ = __webpack_require__("../../../../angularfire2/database/database.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_sweetalert2__ = __webpack_require__("../../../../sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_sweetalert2__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -263,6 +265,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -287,6 +290,12 @@ var ContactoComponent = (function () {
         var html = "\n      <div>From: " + name + "</div>\n      <div>Email: <a href=\"mailto:" + email + "\">" + email + "</a></div>\n      <div>Date: " + date + "</div>\n      <div>Message: " + message + "</div>\n    ";
         var formRequest = { name: name, email: email, message: message, date: date, html: html };
         this.db.list('/messages').push(formRequest);
+        __WEBPACK_IMPORTED_MODULE_4_sweetalert2___default()({
+            title: '¡Genial!',
+            type: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        });
         this.form.reset();
     };
     ContactoComponent.prototype.ngOnInit = function () {
